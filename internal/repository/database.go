@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/1shoukr/linkvault/internal/config"
+	"github.com/1shoukr/linkvault/internal/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -12,7 +13,7 @@ import (
 
 var DB *gorm.DB
 
-// InitDatabase initializes the database connection
+// InitDatabase initializes the database connection and runs AutoMigrate
 func InitDatabase(cfg *config.Config) (*gorm.DB, error) {
 	if cfg.DatabaseURL == "" {
 		return nil, fmt.Errorf("DATABASE_URL is required")
@@ -47,8 +48,23 @@ func InitDatabase(cfg *config.Config) (*gorm.DB, error) {
 	sqlDB.SetMaxIdleConns(10)
 	sqlDB.SetMaxOpenConns(100)
 
+	// AutoMigrate all models
+	log.Println("Running database migrations...")
+	err = db.AutoMigrate(
+		&models.User{},
+		&models.OAuthAccount{},
+		&models.MagicLinkToken{},
+		&models.Link{},
+		&models.Click{},
+		&models.LinkCheckHistory{},
+		&models.Subscription{},
+	)
+	if err != nil {
+		return nil, fmt.Errorf("failed to run migrations: %w", err)
+	}
+
 	DB = db
-	log.Println("Database connection established successfully")
+	log.Println("Database connection established and migrations completed successfully")
 	return db, nil
 }
 
