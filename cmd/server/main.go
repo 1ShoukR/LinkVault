@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/1shoukr/linkvault/internal/api/middleware"
+	"github.com/1shoukr/linkvault/internal/middleware"
 	"github.com/1shoukr/linkvault/internal/config"
 	"github.com/1shoukr/linkvault/internal/repository"
 	"github.com/1shoukr/linkvault/internal/routes"
