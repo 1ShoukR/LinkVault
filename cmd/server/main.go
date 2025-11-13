@@ -3,20 +3,26 @@ package main
 import (
 	"log"
 
-	"github.com/1shoukr/linkvault/internal/middleware"
 	"github.com/1shoukr/linkvault/internal/config"
+	"github.com/1shoukr/linkvault/internal/middleware"
 	"github.com/1shoukr/linkvault/internal/repository"
 	"github.com/1shoukr/linkvault/internal/routes"
+	"github.com/1shoukr/linkvault/pkg/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
 
 func main() {
-	// Load configuration
+	// Load .env file
 	if err := godotenv.Load(); err != nil {
-		log.Fatalf("Failed to load environment variables: %v", err)
+		log.Println("No .env file found, using system environment variables")
 	}
+
+	// Load configuration
 	cfg := config.Load()
+
+	// Initialize JWT
+	utils.InitJWT(cfg.JWTSecret)
 
 	// Initialize database connection
 	db, err := repository.InitDatabase(cfg)
@@ -35,7 +41,6 @@ func main() {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-	
 	// Initialize Gin router
 	router := gin.Default()
 	// Setup CORS middleware
