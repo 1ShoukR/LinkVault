@@ -127,7 +127,7 @@ export default function Home() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-4">
-           <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+           <div className="h-8 w-8 animate-spin rounded-full border-4 border-purple-500 border-t-transparent" />
            <p className="text-muted-foreground animate-pulse">Loading LinkVault...</p>
         </div>
       </div>
@@ -150,7 +150,7 @@ export default function Home() {
             href="/" 
             className="group flex items-center gap-2 text-lg font-bold tracking-tight transition-all hover:opacity-80"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-purple-600 to-cyan-600">
               <Shield className="h-4 w-4 text-white" />
             </div>
             <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
@@ -184,17 +184,17 @@ export default function Home() {
              <div className={`mx-auto max-w-4xl transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm backdrop-blur-md">
                 <span className="mr-2 flex h-2 w-2">
-                  <span className="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-primary opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                  <span className="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-purple-500 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-purple-500" />
                 </span>
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-medium">
+                <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-medium">
                   New: Early Access is live
                 </span>
               </div>
               
               <h1 className="mb-8 text-5xl font-bold tracking-tight leading-[1.1] sm:text-7xl">
                 Connect with <br />
-                <span className="bg-gradient-to-r from-primary via-purple-400 to-secondary bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">
                   confidence.
                 </span>
               </h1>
@@ -308,7 +308,7 @@ export default function Home() {
                   className="group border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-300 overflow-hidden"
                 >
                   <CardHeader>
-                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform duration-300">
+                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/10 text-purple-400 group-hover:scale-110 transition-transform duration-300">
                       <Icon className="h-6 w-6" />
                     </div>
                     <CardTitle className="text-xl">{feature.title}</CardTitle>
@@ -317,7 +317,7 @@ export default function Home() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/50 group-hover:text-primary transition-colors">
+                    <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/50 group-hover:text-purple-400 transition-colors">
                       {feature.metric}
                     </div>
                   </CardContent>
@@ -391,7 +391,7 @@ export default function Home() {
       <footer className="border-t border-white/5 py-12 bg-background">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
-            <Shield className="h-5 w-5 text-primary" />
+            <Shield className="h-5 w-5 text-purple-500" />
             <span className="font-bold">LinkVault</span>
           </div>
           <div className="text-sm text-muted-foreground">
