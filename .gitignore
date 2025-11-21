@@ -64,10 +64,6 @@ node_modules/
 *.sw?
 # OS specific
 
-# Task files
-# tasks.json
-# tasks/
-
 # Go
 *.exe
 *.exe~
@@ -82,3 +78,7 @@ go.work.sum
 # Go build artifacts
 /bin/
 /dist/ 
+
+# Task files
+# tasks.json
+# tasks/ 
